@@ -1,5 +1,7 @@
 name: "actions getting started 0"
-on: [push,workflow-dispatch]
+on:
+   workflow_dispatch:
+   push:
 jobs:
     build:
         name: sample build step
