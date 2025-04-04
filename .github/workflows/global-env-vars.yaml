@@ -11,6 +11,10 @@ jobs:
       JOB_VAR: 'Job env var' 
     steps:
     - name: echo env var
+      env:
+        STEP_VAR: 'Step"s env variable' 
+
       run: |
         echo ${{ env.GLOBAL_VAR }}
         echo ${{ env.JOB_VAR }}
+        echo ${{ env.STEP_VAR }}
