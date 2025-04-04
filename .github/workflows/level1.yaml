@@ -7,6 +7,7 @@ jobs:
         name: sample build step
         runs-on: ubuntu-latest
         steps:
+        - name: checkout and list dirs
         - uses: actions/checkout@v3
         - run: ls -R
         - run: echo 'hello world actions'
