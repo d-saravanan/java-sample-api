@@ -7,4 +7,4 @@ jobs:
         name: sample build step
         runs-on: ubuntu-latest
         steps:
-            run: echo 'hello world actions'
+        - run: echo 'hello world actions'
