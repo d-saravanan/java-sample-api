@@ -10,5 +10,3 @@ jobs:
         uses: actions/checkout@v2
       - name: Log Branch Name
         run: echo ${{ github.ref }}
-      - name: Extract and Log Branch Name
-        run: echo "Current Branch: ${{ github.ref##refs/heads/ }}"
