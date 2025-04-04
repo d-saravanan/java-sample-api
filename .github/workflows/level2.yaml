@@ -18,8 +18,7 @@ jobs:
         run: echo 'hello world actions'
 
       - name: log branch name
-        run:
-          echo "Branch: ${{ github.ref }}"
+        run: echo "Branch: ${{ github.ref }}"
 
       - name: conditional step
         if: ${{ github.ref == 'refs/heads/main' }}
