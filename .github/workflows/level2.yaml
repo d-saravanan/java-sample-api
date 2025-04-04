@@ -1,0 +1,18 @@
+name: "actions getting started 1"
+on:
+   workflow_dispatch:
+   push:
+jobs:
+    build:
+        name: sample build step
+        runs-on: ubuntu-latest
+        steps:
+        - name: checkout and list dirs
+          uses: actions/checkout@v3
+        - name: list directories
+          run: ls -R
+        - name: greeting message 
+          run: echo 'hello world actions'
+        - name: conditional step
+          if: github.ref == 'refs/head/main'
+          run: echo "main branch"
