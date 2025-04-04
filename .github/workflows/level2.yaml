@@ -7,6 +7,9 @@ jobs:
         name: sample build step
         runs-on: ubuntu-latest
         steps:
+        - name: conditional step
+          if: github.ref == 'refs/heads/main'
+          run: echo "main branch"
         - name: checkout and list dirs
           uses: actions/checkout@v3
         - name: list directories
