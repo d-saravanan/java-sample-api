@@ -1,4 +1,4 @@
-name: "actions getting started 0"
+name: "actions getting started 1"
 on:
    workflow_dispatch:
    push:
