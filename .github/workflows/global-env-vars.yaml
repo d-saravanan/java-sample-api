@@ -11,5 +11,6 @@ jobs:
       JOB_VAR: 'Job env var' 
     steps:
     - name: echo env var
-      run: echo ${{ env.GLOBAL_VAR }}
-      run: echo ${{ env.JOB_VAR }}
+      run: |
+        echo ${{ env.GLOBAL_VAR }}
+        echo ${{ env.JOB_VAR }}
