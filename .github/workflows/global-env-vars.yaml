@@ -12,7 +12,7 @@ jobs:
     steps:
     - name: echo env var
       env:
-        STEP_VAR: 'Step"s env variable' 
+        STEP_VAR: 'Steps env variable' 
 
       run: |
         echo ${{ env.GLOBAL_VAR }}
