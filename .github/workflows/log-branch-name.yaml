@@ -1,11 +1,15 @@
-name: Log Branch Name
-on: [push, pull_request]
+name: Retrieve Branch Name
+on:
+  push:
+    branches:
+      - '*'
 
 jobs:
-  log-branch-name:
+  retrieve-branch:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-      - name: Log Branch Name
-        run: echo "Current Branch: ${{ github.head_ref || github.ref##refs/heads/ }}"
+
+      - name: Display Branch Name
+        run: echo "Current Branch: ${{ github.ref }}"
