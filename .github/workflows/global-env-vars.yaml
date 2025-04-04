@@ -7,6 +7,9 @@ jobs:
   log:
     name: sample env var log step
     runs-on: ubuntu-latest
+    env:
+      JOB_VAR: 'Job env var' 
     steps:
     - name: echo env var
       run: echo ${{ env.GLOBAL_VAR }}
+      run: echo ${{ env.JOB_VAR }}
