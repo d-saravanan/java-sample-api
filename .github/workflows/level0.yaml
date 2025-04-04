@@ -1,0 +1,8 @@
+name: "actions getting started 0"
+on: push
+jobs:
+    build:
+        name: sample build step
+        runs-on: ubuntu-latest
+        steps:
+            run: echo 'hello world actions'
