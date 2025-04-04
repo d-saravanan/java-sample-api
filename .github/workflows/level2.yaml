@@ -7,6 +7,8 @@ jobs:
         name: sample build step
         runs-on: ubuntu-latest
         steps:
+        - name: log branch name
+          run: echo "Branch: ${{ github.ref }}"
         - name: conditional step
           if: github.ref == 'refs/heads/main'
           run: echo "main branch"
