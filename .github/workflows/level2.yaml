@@ -1,26 +1,26 @@
-1| name: "actions getting started 2"
-2| on:
-3|   workflow_dispatch:
-4|   push:
-5| 
-6| jobs:
-7|   build:
-8|     name: sample build step
-9|     runs-on: ubuntu-latest
-10|     steps:
-11|       - name: checkout and list dirs
-12|         uses: actions/checkout@v3
-13| 
-14|       - name: list directories
-15|         run: ls -R
-16| 
-17|       - name: greeting message
-18|         run: echo 'hello world actions'
-19| 
-20|       - name: log branch name
-21|         run: echo "Branch: ${{ github.ref }}"
-22| 
-23|       - name: conditional step
-24|         if: ${{ github.ref == 'refs/heads/main' }}
-25|         run: echo "main branch"
-26| 
+ name: "actions getting started 2"
+ on:
+   workflow_dispatch:
+   push:
+ 
+ jobs:
+   build:
+     name: sample build step
+     runs-on: ubuntu-latest
+     steps:
+       - name: checkout and list dirs
+         uses: actions/checkout@v3
+ 
+       - name: list directories
+         run: ls -R
+ 
+       - name: greeting message
+         run: echo 'hello world actions'
+ 
+       - name: log branch name
+         run: echo "Branch: ${{ github.ref }}"
+ 
+       - name: conditional step
+         if: ${{ github.ref == 'refs/heads/main' }}
+         run: echo "main branch"
+ 
