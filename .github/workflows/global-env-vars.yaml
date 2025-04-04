@@ -1,0 +1,12 @@
+name: global env vars
+on:
+  push:
+env:
+  GLOBAL_VAR: 'GlobalValue' 
+jobs:
+  log:
+    name: sample env var log step
+    runs-on: ubuntu-latest
+    steps:
+    - name: echo env var
+      run: echo ${{ env.GLOBAL_VAR }}
