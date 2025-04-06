@@ -1,30 +1,42 @@
-name: 'CODE QL Scanning'
+name: Analyze
+
 on:
-   workflow_dispatch:
-   push:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '20 14 * * 1'
 
 jobs:
-  code_can:
+  analyze:
+    name: Analyze
     runs-on: ubuntu-latest
-    name: 'code ql scan'
     permissions:
-     contents: read
-     security-events: write
-    steps:
-      - name: checkout repo
-        uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '21'
+      contents: read
+      security-events: write
 
-      - name: Build with Maven
-        run: mvn -B package --file pom.xml
-  
-      - name: Run the scan against the codebase
-        id: run-scan
-        uses: tonys-code-base/run-codeql-analysis-action@master
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
         with:
-          language_to_scan: java
-          token: ${{ secrets.GITHUB_TOKEN }}
-    
+          persist-credentials: false
+
+      - name: Check Directory Permissions
+        run: |
+          ls -l
+          ls -l /path/to/directory
+
+      - name: Debug Token
+        run: |
+          echo "GITHUB_TOKEN is set: ${{ secrets.GITHUB_TOKEN }}"
+          echo "Token permissions: ${{ toJson(github.token.permissions) }}"
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: java
+          build-mode: none
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
