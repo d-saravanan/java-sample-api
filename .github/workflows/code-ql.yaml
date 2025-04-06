@@ -24,8 +24,7 @@ jobs:
 
       - name: Check Directory Permissions
         run: |
-          ls -l
-          ls -l /path/to/directory
+          ls -al
 
       - name: Debug Token
         run: |
