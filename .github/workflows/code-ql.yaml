@@ -6,6 +6,8 @@ jobs:
   code_can:
     runs-on: ubuntu-latest
     name: 'code ql scan'
+    permissions:
+      contents: read # Ensures the token can read repository content
     steps:
       - name: checkout repo
         uses: actions/checkout@v4
@@ -13,6 +15,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
+
       - name: Build with Maven
         run: mvn -B package --file pom.xml
   
