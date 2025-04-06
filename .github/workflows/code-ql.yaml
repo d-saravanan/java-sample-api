@@ -2,13 +2,14 @@ name: 'CODE QL Scanning'
 on:
    workflow_dispatch:
    push:
-permissions:
-  contents: read, write
-  security-events: write
+
 jobs:
   code_can:
     runs-on: ubuntu-latest
     name: 'code ql scan'
+    permissions:
+     contents: read
+     security-events: write
     steps:
       - name: checkout repo
         uses: actions/checkout@v4
