@@ -9,7 +9,7 @@ on:
 
 jobs:
   analyze:
-    name: Analyze
+    name: Upload Main.Java
     runs-on: ubuntu-latest
 
     steps:
